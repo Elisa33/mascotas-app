@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 
 function App() {
 
-  //citas en local Storage
+  //Citas en local Storage
   let citasIniciales = JSON.parse(localStorage.getItem('citas'));
   if(!citasIniciales){
     citasIniciales = [];
   }
 
-  //arreglo de todas las citas
+  //Arreglo de todas las citas
   const [citas, guardarCitas] = useState(citasIniciales);
 
   //Use Effect para realizar operaciones cuando el state cambia
@@ -23,7 +23,7 @@ function App() {
     }
   },[citas, citasIniciales])
 
-  //funcion que tome las citas actuales y agregue la nueva
+  //Funcion que tome las citas actuales y agregue la nueva
   const crearCita = cita =>{
     guardarCitas([ ...citas,  cita ] );
   } 
@@ -46,7 +46,6 @@ function App() {
               <Formulario 
                 crearCita={crearCita}
               />
-
             </div>
             <div className='one-half column'>
               <h2>{titulo}</h2>
@@ -57,18 +56,10 @@ function App() {
                   eliminarCita={eliminarCita}
                 />
               ))}
-              
-              
             </div>
-
-
           </div>
-
         </div>
-
-
     </Fragment>
-       
   );
 }
 

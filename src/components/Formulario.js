@@ -22,8 +22,6 @@ const Formulario  = ({crearCita}) => {
         })
     }
 
-
-
     //Extraer los valores
     const {mascota, propietario, fecha, hora, sintomas} = cita;
     //Funcion cuando el usuario presiona el boton
@@ -56,7 +54,6 @@ const Formulario  = ({crearCita}) => {
     return ( 
         <Fragment>
              <h2>Crear cita</h2>
-
              { error ?  <p className="alerta-error">Todos los campos son obligatorios</p>  : null  }
              <form
                 onSubmit={submitCita}
@@ -107,12 +104,8 @@ const Formulario  = ({crearCita}) => {
                     type='submit'
                     className='u-full-width button-primary'
                 >Agregar cita</button>
-
              </form>
-
-
         </Fragment>
-       
      );
 }
  
