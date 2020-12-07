@@ -1,10 +1,16 @@
-import {Fragment, useState} from 'react';
+import {Fragment, useState, useEffect} from 'react';
 import Formulario from './components/Formulario';
 import Cita from './components/Cita';
 
 function App() {
+
   //arreglo de todas las citas
   const [citas, guardarCitas] = useState([]);
+
+  //Use Effect para realizar operaciones cuando el state cambia
+  useEffect( () => { 
+    console.log('listo');
+  },[citas])
 
   //funcion que tome las citas actuales y agregue la nueva
   const crearCita = cita =>{
@@ -16,6 +22,9 @@ function App() {
     const nuevasCitas = citas.filter(cita => cita.id !== id);
     guardarCitas(nuevasCitas);
   }
+
+  //Titulo condicional 
+  const titulo = citas.length === 0 ? "No hay citas" : "Administra tus citas";
 
   return (
     <Fragment>
@@ -29,7 +38,7 @@ function App() {
 
             </div>
             <div className='one-half column'>
-              <h2>Administra tus citas</h2>
+              <h2>{titulo}</h2>
               {citas.map( cita => (
                 <Cita 
                   key={cita.id}
